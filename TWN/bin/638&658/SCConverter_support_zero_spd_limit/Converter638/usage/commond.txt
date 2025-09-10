@@ -1,0 +1,46 @@
+SCConverter_MiVue.exe Z:\DVR\CHN\201605\Amy-6series/jiangzhehu_alltype-forAmy6series_V17.csv Z:\DVR\CHN\201605\Amy-6series/Speedcam_Data_CHN.bin -l
+
+SCConverter_MiVue.exe Z:\DVR\HK\20160120_v10\6series\CH_201601_MioSpeedCam_538.csv Z:\DVR\HK\20160120_v10\6series\Speedcam_Data_HKG.bin -l
+
+
+
+SCConverter_MiVue.exe Z:\DVR\ISR\ISR_SpeedCam_201606.csv Z:\DVR\ISR\Speedcam_Data_ISR.bin -l
+
+SCConverter_MiVue.exe Z:\DVR\EU\20160612_v36EU+Georgia\638\eu_20160612_MioSpeedCam.csv Z:\DVR\EU\20160612_v36EU+Georgia\638\Speedcam_Data_EU.bin -l
+
+SCConverter_MiVue.exe Z:\DVR\Sigapore\20160715\output\Bilis\SGMY_20160718_MioSpeedCam.csv Z:\DVR\Sigapore\20160715\output\Bilis\Speedcam_Data_SGMY.bin -l
+
+SCConverter_MiVue.exe Z:\DVR\EU\20161012_v39EU+Georgia\BILIS\eu_20161013_MioSpeedCam-688.csv Z:\DVR\EU\20161012_v39EU+Georgia\BILIS\Speedcam_Data_EU.bin -l
+
+SCConverter_MiVue.exe Z:\DVR\Philippines\20160923_v11\BILIS\Philippines-20160923.csv Z:\DVR\Philippines\20160923_v11\BILIS\Speedcam_Data_PH.bin -l
+
+SCConverter_MiVue.exe Z:\DVR\HK\20181031_v21\BILIS\CH_201810_MioSpeedCam_688.csv Z:\DVR\HK\20181031_v21\BILIS\Speedcam_Data_HK.bin -l
+
+SCConverter_MiVue.exe Z:\DVR\TW\20190305_v33-TWSEA\BILIS\SGMYPHISRVN-TTSEA-ZRTW_201903_MioSpeedCam-OldType.csv Z:\DVR\TW\20190305_v33-TWSEA\BILIS\Speedcam_Data_TWN.bin -l
+
+SCConverter_MiVue.exe Z:\DVR\EU\20161111_v40EU+Georgia\BILIS\eu_20161111_MioSpeedCam-688.csv Z:\DVR\EU\20161111_v40EU+Georgia\BILIS\Speedcam_Data_EU.bin -l
+
+SCConverter_MiVue.exe Z:\DVR\TAEU\20170809_v49EU+Georgia\BILIS\eu_20170809_MioSpeedCam-688.csv Z:\DVR\TAEU\20170809_v49EU+Georgia\BILIS\Speedcam_Data_EU.bin -l
+
+
+SCConverter_MiVue.exe Z:\DVR\04-Russia-Monthly\20220906_v130\BILIS_v130\RU_20220901_MioSpeedCam.csv Z:\DVR\04-Russia-Monthly\20220906_v130\BILIS_v130\Speedcam_Data_RUS.bin -l
+
+SCConverter_MiVue.exe Z:\DVR\TAEU\20170809_v48EU+Georgia\BILIS_no_ltu\eu_20170809_MioSpeedCam-688.csv Z:\DVR\TAEU\20170809_v48EU+Georgia\BILIS_no_ltu\Speedcam_Data_EU.bin -l
+
+SCConverter_MiVue.exe Z:\DVR\Russia\20181224_V95\BILIS-6series\ROU_20182012_MioSpeedCam.csv Z:\DVR\Russia\20181224_V95\BILIS-6series\Speedcam_Data_RUS.bin -l
+
+
+SCConverter_MiVue.exe Z:\DVR\TAEU\20191224_v81-noDEU\BILIS\eu_20191218_MioSpeedCam_688.csv Z:\DVR\TAEU\20191224_v81-noDEU\BILIS\Speedcam_Data_EU.bin -l
+
+SCConverter_MiVue.exe Z:\DVR\TAEU\20200420_v85-noDEU\BILIS\eu_20200716_MioSpeedCam_688.csv Z:\DVR\05-TAEU-noDEU\20200716_v88-noDEU\BILIS\Speedcam_Data_EU.bin -l
+
+SCConverter_MiVue.exe Z:\DVR\05-TAEU-noDEU-M\20211214_v107-noDEU\BILIS\eu_20211214_MioSpeedCam_688.csv Z:\DVR\05-TAEU-noDEU-M\20211214_v107-noDEU\BILIS\Speedcam_Data_EU.bin -l
+SCConverter_MiVue.exe Z:\Mio_Compiled_Data\DVR\05-TAEU-noDEU-M\20240104_v136-noDEU\BILIS\eu_20240104_MioSpeedCam_688.csv Z:\Mio_Compiled_Data\DVR\05-TAEU-noDEU-M\20240104_v136-noDEU\BILIS\Speedcam_Data_EU.bin -l
+
+
+SCConverter_MiVue.exe Z:\DVR\01-TWN-Q\20220908_v72TWOnly\BILIS\TW_202205_MioSpeedCam_388-r03.csv Z:\DVR\01-TWN-Q\20220908_v72TWOnly\BILIS\Speedcam_Data_TWN.bin -l
+
+SCConverter_MiVue.exe Z:\DVR\04-Russia-Monthly\20211217_v123\BILIS_v123\RU_20211215_MioSpeedCam.csv Z:\DVR\04-Russia-Monthly\20211217_v123\BILIS_v123\Speedcam_Data_RUS.bin -l
+
+
+SCConverter_MiVue.exe Z:\DVR\05-TAEU-noDEU-M\20220317_v110-noDEU\BILIS\eu_20220314_MioSpeedCam_688.csv Z:\DVR\05-TAEU-noDEU-M\20220317_v110-noDEU\BILIS\Speedcam_Data_EU.bin -l

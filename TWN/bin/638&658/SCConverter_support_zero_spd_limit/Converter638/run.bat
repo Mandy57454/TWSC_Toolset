@@ -1,0 +1,1 @@
+call SCConverter_MiVue.exe RUS_202403_MioSpeedCam.csv RUS_202403_MioSpeedCam.bin -l

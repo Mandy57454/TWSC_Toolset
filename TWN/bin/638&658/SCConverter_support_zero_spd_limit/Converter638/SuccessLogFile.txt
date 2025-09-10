@@ -1,0 +1,6 @@
+Usage:
+	X:\RD7SW2_Folders\RD7SW2_Folders\Mio_Compiled_Data\DVR\00-TOOL\638&658\SCConverter_support_zero_spd_limit\Converter638\SCConverter_MiVue.exe
+	 path_to_input_file (.xls .csv)
+	path_to_output_file
+	[-f (fast reading mode for .xls)]
+	[-l (output to log file)]

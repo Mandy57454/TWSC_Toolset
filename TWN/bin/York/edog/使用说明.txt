@@ -1,0 +1,5 @@
+1、在此目录下打开CMD.EXE
+2、执行命令：speedcamtool/u
+
+
+路径：\CSV_from_v2_ver2\excel2bin\excel2bin\obj\x86\Debug

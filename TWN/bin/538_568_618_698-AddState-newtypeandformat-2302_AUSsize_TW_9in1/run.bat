@@ -1,0 +1,1 @@
+python dumpData.py -f=Speedcam_Data-2023-02-20-16-52-51.bin -s1

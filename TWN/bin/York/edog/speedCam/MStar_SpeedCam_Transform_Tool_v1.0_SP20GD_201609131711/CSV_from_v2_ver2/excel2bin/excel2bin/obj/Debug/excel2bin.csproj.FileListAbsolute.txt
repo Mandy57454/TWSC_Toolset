@@ -1,0 +1,8 @@
+D:\tmp_coding\excel2bin\excel2bin\bin\Debug\excel2bin.exe
+D:\tmp_coding\excel2bin\excel2bin\bin\Debug\excel2bin.pdb
+D:\tmp_coding\excel2bin\excel2bin\obj\Debug\ResolveAssemblyReference.cache
+D:\tmp_coding\excel2bin\excel2bin\obj\Debug\excel2bin.Form1.resources
+D:\tmp_coding\excel2bin\excel2bin\obj\Debug\excel2bin.Properties.Resources.resources
+D:\tmp_coding\excel2bin\excel2bin\obj\Debug\excel2bin.csproj.GenerateResource.Cache
+D:\tmp_coding\excel2bin\excel2bin\obj\Debug\excel2bin.exe
+D:\tmp_coding\excel2bin\excel2bin\obj\Debug\excel2bin.pdb

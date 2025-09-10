@@ -1,0 +1,7 @@
+20150323 Selena:
+
+Next time, please use below file name for Bilis(638/658/658WIFI) speedcam update, thank you.
+Speedcam_Data_HKG.bin        HKG
+Speedcam_Data_TWN.bin       TWN
+Speedcam_Data_EU.bin           EU
+Speedcam_Data_RUS.bin        RUS

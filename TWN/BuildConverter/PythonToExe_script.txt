@@ -1,0 +1,1 @@
+pyinstaller bin_file_auto_generation.spec
