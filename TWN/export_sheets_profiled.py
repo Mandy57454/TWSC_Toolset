@@ -32,6 +32,8 @@ SHEETS = [
     "固定式合併科技執法",
     "機車",
     "Taiwan常事故點",
+    "History",
+    "6合1",
 ]
 
 # 每個工作表對應的輸出檔名樣板（可用 {date}、{region}）
@@ -43,6 +45,8 @@ NAME_MAP = {
     "固定式合併科技執法": "combine_{date}.xlsx",
     "機車": "motorcycle_{date}.xlsx",
     "Taiwan常事故點": "popular_{date}.xlsx",
+    "History": "Release_note&History{date}.xlsx",
+    "6合1": "6in1_{date}.xlsx",
 }
 # =====================================
 

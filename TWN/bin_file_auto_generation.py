@@ -3,22 +3,22 @@ import shutil
 import pandas as pd
 import pyexcel as p
 
-build_date = '0821'
-build_date_year = '2025821'
-data_ver = '202508'
-build_R01_Only = 94
-build_R01_SEA = 97
-build_R12 = 78
-build_R21 = 46
-build_R22 = 50
-build_R23 = 44
-build_R24 = 13
-build_R41 = 39
-build_R99 = 4
+build_date = '0924'
+build_date_year = '20250924'
+data_ver = '202509'
+build_R01_Only = 96
+build_R01_SEA = 99
+build_R12 = 79
+build_R21 = 47
+build_R22 = 51
+build_R23 = 45
+build_R24 = 14
+build_R41 = 40
+build_R99 = 5
 
-tech_ver = 'R23'
+tech_ver = 'R24'
 SEA_ver = '20241223'
-motorcycle_ver = 'R2'
+motorcycle_ver = 'R3'
 
 out_path = os.path.join(r"C:\TWSC_Toolset\TWN\OUT", data_ver)
 if os.path.exists(out_path):
@@ -440,7 +440,7 @@ def r22(fixed, combine, average, sea):
 
 
 # R23 -> fixed+average+sea+tech+mobile (sea 5 & 6改成1)(tech 61 刪除, speed 填0)
-def r23(fixed, average, sea, tech, mobile):
+def r23(fixed, average, sea, tech, mobile, six):
     print('start process r23')
     r23_path = r'C:\TWSC_Toolset\TWN\SourceData\Sample\TW&SEA_202412_MioSpeedCam-newtype_v42.xls'
     r23_data = p.get_book(file_name=r23_path)
@@ -539,6 +539,19 @@ def r23(fixed, average, sea, tech, mobile):
                 sheet.row += [row]
             else:
                 continue
+        for i in range(count, sheet.number_of_rows()):
+            sheet[i, 1] = round(sheet[i, 1], 6)  # 座標取小數點後6位
+            sheet[i, 2] = round(sheet[i, 2], 6)  # 座標取小數點後6位
+            sheet[i, 4] = 0  # speed 填 0
+            sheet[i, 7] = str(tech_ver)  # Version
+            sheet[i, 8] = 0  # state
+            sheet[i, 9] = '科技執法'  # Source
+            count += 1
+        # six
+        six_extracted_columns = six.iloc[:, [0, 1, 2, 3, 4, 5, 6]]
+        six_extracted_data = six_extracted_columns.values.tolist()
+        for row in six_extracted_data:
+            sheet.row += [row]
         for i in range(count, sheet.number_of_rows()):
             sheet[i, 1] = round(sheet[i, 1], 6)  # 座標取小數點後6位
             sheet[i, 2] = round(sheet[i, 2], 6)  # 座標取小數點後6位
@@ -873,6 +886,10 @@ motorcycle_data = pd.read_excel(motorcycle_path, sheet_name='機車')
 popular_path = (os.path.join(SuorceData_path, data_ver, f'popular_{data_ver}.xlsx'))
 popular_data = pd.read_excel(popular_path, sheet_name='Taiwan常事故點')
 
+# 6in1
+six_in_one_path = (os.path.join(SuorceData_path, data_ver, f'6in1_{data_ver}.xlsx'))
+six_in_one_data = pd.read_excel(six_in_one_path, sheet_name='6合1')
+
 # new SEA
 new_SEA_path = (os.path.join(SuorceData_path, data_ver, f'SEA_allothers_{SEA_ver}.xls'))
 new_SEA = p.get_book(file_name=new_SEA_path)
@@ -892,7 +909,7 @@ r01_tw_sea_lw(fixed_data, combine_data, old_SEA_data)
 r12(fixed_data, combine_data, new_SEA_data)
 r21(fixed_data, combine_data, average_data)
 r22(fixed_data, combine_data, average_data, old_SEA_data)
-r23(fixed_data, average_data, new_SEA_data, tech_data, mobile_data)
+r23(fixed_data, average_data, new_SEA_data, tech_data, mobile_data, six_in_one_data)
 r24(fixed_data, average_data, new_SEA_data, tech_data, mobile_data)
 r41(average_data)  # (是使用R12的data, 所以不能單獨使用)
 r99(fixed_data, average_data, tech_data, mobile_data, motorcycle_data, popular_data)
