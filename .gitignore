@@ -58,7 +58,6 @@ $RECYCLE.BIN/
 
 # Project specific - Output directories
 TWN/OUT/
-TWN/bin/*.exe
 TWN/bin/*.bin
 TWN/bin/*.raw
 TWN/bin/*.pdb
