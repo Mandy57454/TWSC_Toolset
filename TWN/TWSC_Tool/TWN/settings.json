@@ -1,7 +1,7 @@
 {
-    "build_date": "1127",
-    "build_date_year": "20251127",
-    "data_ver": "202511",
+    "build_date": "0701",
+    "build_date_year": "20250701",
+    "data_ver": "202507",
     "build_R01_Only": 94,
     "build_R01_SEA": 97,
     "build_R12": 78,
@@ -21,8 +21,8 @@
     "r24_path": "C:\\TWSC_Toolset\\TWN\\SourceData\\Sample\\TW_202412_MioSpeedCam-9in1_v11.xls",
     "r41_path": "C:\\TWSC_Toolset\\TWN\\SourceData\\Sample\\TW&SEA_202412_MioSpeedCam-newtype_v37.xls",
 	"r99_path": "C:\\TWSC_Toolset\\TWN\\SourceData\\Sample\\TW_202505_MioSpeedCam-99_v1.xls",
-    "tech_ver": "R24",
-    "SEA_ver": "20251127",
-	"motorcycle_ver": "R3",
+    "tech_ver": "R22",
+    "SEA_ver": "20241223",
+	"motorcycle_ver": "R2",
     "output_path_folder": "C:\\TWSC_Toolset\\TWN\\OUT"
 }

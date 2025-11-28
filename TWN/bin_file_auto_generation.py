@@ -3,10 +3,10 @@ import shutil
 import pandas as pd
 import pyexcel as p
 
-build_date = '0924'
-build_date_year = '20250924'
-data_ver = '202509'
-build_R01_Only = 96
+build_date = '1126'
+build_date_year = '20251126'
+data_ver = '202511'
+build_R01_Only = 98
 build_R01_SEA = 99
 build_R12 = 79
 build_R21 = 47
@@ -20,7 +20,7 @@ tech_ver = 'R24'
 SEA_ver = '20241223'
 motorcycle_ver = 'R3'
 
-out_path = os.path.join(r"C:\TWSC_Toolset\TWN\OUT", data_ver)
+out_path = os.path.join(os.path.dirname(__file__), "OUT", data_ver)
 if os.path.exists(out_path):
     shutil.rmtree(out_path)
 ########################################################################################################################
@@ -440,7 +440,7 @@ def r22(fixed, combine, average, sea):
 
 
 # R23 -> fixed+average+sea+tech+mobile (sea 5 & 6改成1)(tech 61 刪除, speed 填0)
-def r23(fixed, average, sea, tech, mobile, six):
+def r23(fixed, average, sea, tech, mobile, six, combine):
     print('start process r23')
     r23_path = r'C:\TWSC_Toolset\TWN\SourceData\Sample\TW&SEA_202412_MioSpeedCam-newtype_v42.xls'
     r23_data = p.get_book(file_name=r23_path)
@@ -513,6 +513,11 @@ def r23(fixed, average, sea, tech, mobile, six):
         fixed_extracted_data = fixed_extracted_columns.values.tolist()
         for row in fixed_extracted_data:
             sheet.row += [row]
+        # combine
+        combine_extracted_columns = combine.iloc[:, [0, 1, 2, 3, 4, 5, 6]]
+        combine_extracted_data = combine_extracted_columns.values.tolist()
+        for row in combine_extracted_data:
+            sheet.row += [row]
         for i in range(count, sheet.number_of_rows()):
             sheet[i, 1] = round(sheet[i, 1], 6)  # 座標取小數點後6位
             sheet[i, 2] = round(sheet[i, 2], 6)  # 座標取小數點後6位
@@ -578,7 +583,7 @@ def r23(fixed, average, sea, tech, mobile, six):
 
 
 # R24 -> fixed+average+sea+tech+mobile (sea 5 & 6改成1)(增加 Bridge-type & sec)
-def r24(fixed, average, sea, tech, mobile):
+def r24(fixed, average, sea, tech, mobile, combine):
     print('start process r24')
     r24_path = r'C:\TWSC_Toolset\TWN\SourceData\Sample\TW_202412_MioSpeedCam-9in1_v11.xls'
     r24_data = p.get_book(file_name=r24_path)
@@ -621,6 +626,11 @@ def r24(fixed, average, sea, tech, mobile):
         fixed_extracted_columns = fixed.iloc[:, [0, 1, 2, 3, 4, 5, 6, 7, 8]]
         fixed_extracted_data = fixed_extracted_columns.values.tolist()
         for row in fixed_extracted_data:
+            sheet.row += [row]
+        # combine
+        combine_extracted_columns = combine.iloc[:, [0, 1, 2, 3, 4, 5, 6, 7, 8]]
+        combine_extracted_data = combine_extracted_columns.values.tolist()
+        for row in combine_extracted_data:
             sheet.row += [row]
         for i in range(count, sheet.number_of_rows()):
             sheet[i, 1] = round(sheet[i, 1], 6)  # 座標取小數點後6位
@@ -735,7 +745,7 @@ def r41(average):
 ########################################################################################################################
 
 
-def r99(fixed, average, tech, mobile, motorcycle, popular):
+def r99(fixed, average, tech, mobile, motorcycle, popular, svd, combine):
     print('start process r99')
     r99_path = r'C:\TWSC_Toolset\TWN\SourceData\Sample\TW_202505_MioSpeedCam-99_v1.xls'
     r99_data = p.get_book(file_name=r99_path)
@@ -752,15 +762,27 @@ def r99(fixed, average, tech, mobile, motorcycle, popular):
         # 只保留第一列
         for i in range(number_of_rows - 1, 0, -1):
             del sheet.row[i]
-        # average
+        # average and svd
         average_extracted_columns = average.iloc[:, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 11]]
         average_extracted_data = average_extracted_columns.values.tolist()
+        svd_extracted_columns = svd.iloc[:, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+        svd_extracted_data = svd_extracted_columns.values.tolist()
         for row in average_extracted_data:
             if type(row[0]) is str:
                 sheet.row += [row]
             else:
                 continue
+        for row in svd_extracted_data:
+            if type(row[0]) is str:
+                sheet.row += [row]
+            else:
+                continue
         for row in average_extracted_data:
+            if type(row[0]) is int:
+                sheet.row += [row]
+            else:
+                continue
+        for row in svd_extracted_data:
             if type(row[0]) is int:
                 sheet.row += [row]
             else:
@@ -772,12 +794,18 @@ def r99(fixed, average, tech, mobile, motorcycle, popular):
             sheet[i, 9] = str(sheet[i, 9]).replace(' ', '')  # 去除空格
             sheet[i, 11] = str(sheet[i, 11])
             sheet[i, 13] = 0  # State
-            sheet[i, 14] = '區間測速'  # Source
+            if sheet[i, 14] == '':
+                sheet[i, 14] = '區間測速'  # Source
             count += 1
         # fixed
         fixed_extracted_columns = fixed.iloc[:, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15]]
         fixed_extracted_data = fixed_extracted_columns.values.tolist()
         for row in fixed_extracted_data:
+            sheet.row += [row]
+        # combine
+        combine_extracted_columns = combine.iloc[:, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15]]
+        combine_extracted_data = combine_extracted_columns.values.tolist()
+        for row in combine_extracted_data:
             sheet.row += [row]
         for i in range(count, sheet.number_of_rows()):
             sheet[i, 1] = round(sheet[i, 1], 6)  # 座標取小數點後6位
@@ -890,6 +918,10 @@ popular_data = pd.read_excel(popular_path, sheet_name='Taiwan常事故點')
 six_in_one_path = (os.path.join(SuorceData_path, data_ver, f'6in1_{data_ver}.xlsx'))
 six_in_one_data = pd.read_excel(six_in_one_path, sheet_name='6合1')
 
+# SVD
+svd_path = (os.path.join(SuorceData_path, data_ver, f'SVD_{data_ver}.xlsx'))
+svd_data = pd.read_excel(svd_path, sheet_name='SVD')
+
 # new SEA
 new_SEA_path = (os.path.join(SuorceData_path, data_ver, f'SEA_allothers_{SEA_ver}.xls'))
 new_SEA = p.get_book(file_name=new_SEA_path)
@@ -902,15 +934,15 @@ old_SEA_data = old_SEA['data']
 ########################################################################################################################
 
 make_dir()
-r01_388(fixed_data, combine_data)
-r01_only_lw(fixed_data, combine_data)
-r28_r52_r60r62_r58()  # (是使用r01_only_lw 的 data, 所以不能單獨使用)
-r01_tw_sea_lw(fixed_data, combine_data, old_SEA_data)
-r12(fixed_data, combine_data, new_SEA_data)
-r21(fixed_data, combine_data, average_data)
+# r01_388(fixed_data, combine_data)
+# r01_only_lw(fixed_data, combine_data)
+# r28_r52_r60r62_r58()  # (是使用r01_only_lw 的 data, 所以不能單獨使用)
+# r01_tw_sea_lw(fixed_data, combine_data, old_SEA_data)
+# r12(fixed_data, combine_data, new_SEA_data)
+# r21(fixed_data, combine_data, average_data)
 r22(fixed_data, combine_data, average_data, old_SEA_data)
-r23(fixed_data, average_data, new_SEA_data, tech_data, mobile_data, six_in_one_data)
-r24(fixed_data, average_data, new_SEA_data, tech_data, mobile_data)
-r41(average_data)  # (是使用R12的data, 所以不能單獨使用)
-r99(fixed_data, average_data, tech_data, mobile_data, motorcycle_data, popular_data)
+r23(fixed_data, average_data, new_SEA_data, tech_data, mobile_data, six_in_one_data, combine_data)
+r24(fixed_data, average_data, new_SEA_data, tech_data, mobile_data, combine_data)
+# r41(average_data)  # (是使用R12的data, 所以不能單獨使用)
+r99(fixed_data, average_data, tech_data, mobile_data, motorcycle_data, popular_data, svd_data, combine_data)
 

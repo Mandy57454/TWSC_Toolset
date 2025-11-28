@@ -33,6 +33,7 @@ echo build_R22=%build_R22%
 echo build_R23=%build_R23%
 echo build_R24=%build_R24%
 echo build_R41=%build_R41%
+echo build_R99=%build_R99%
 
 
 REM call each converter 
@@ -118,6 +119,14 @@ echo excel in output folders\R41\York-V38_v20250331-ROW
 call "bin\York\edog\speedCam\speedcamtool.exe" /u
 call copy /Y bin\York\edog\speedCam\*.bin OUT\%data_ver%\Release\R41\York-V%build_R41%_v%build_date_year%-ROW\*.bin
 call del bin\York\edog\speedCam\*.bin
+
+echo R99
+echo r99_9in1
+echo excel in output folders\R99\V2.0331.01.99-ROW
+call "bin\speedcamtool_V99\speedcamtool.exe" /u
+call copy /Y bin\speedcamtool_V99\*.bin OUT\%data_ver%\Release\R99\V%build_R99%.%build_date%.01.99-ROW\*.bin
+call del bin\speedcamtool_V99\*.bin
+
 
 endlocal
 pause

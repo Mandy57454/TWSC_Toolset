@@ -17,9 +17,9 @@ import pandas as pd
 import os
 
 # ======== 設定區（改這裡就好） ========
-DATE = "202509"                 # 例如：202508
+DATE = "202511"                 # 例如：202508
 REGION = "R24"                  # 例如：R23
-BASE_DIR = os.path.join(r"C:\TWSC_Toolset\TWN\SourceData", DATE)
+BASE_DIR = os.path.join(Path(__file__).parent, "SourceData", DATE)
 INPUT_BASENAME = "TWN Speed cam update.xlsx"
 OUTDIR = ""                  # 輸出資料夾
 
@@ -34,6 +34,7 @@ SHEETS = [
     "Taiwan常事故點",
     "History",
     "6合1",
+    "SVD",
 ]
 
 # 每個工作表對應的輸出檔名樣板（可用 {date}、{region}）
@@ -47,6 +48,7 @@ NAME_MAP = {
     "Taiwan常事故點": "popular_{date}.xlsx",
     "History": "Release_note&History{date}.xlsx",
     "6合1": "6in1_{date}.xlsx",
+    "SVD": "SVD_{date}.xlsx",
 }
 # =====================================
 
